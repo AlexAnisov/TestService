@@ -1,0 +1,13 @@
+﻿@model IEnumerable<BLL.Interfacies.Entities.TestEntity>
+
+@{
+    ViewBag.Title = "Tests";
+}
+
+@foreach (var p in Model)
+{
+    <div>
+        <h4>@p.Number</h4>
+        <h3>@p.Name</h3>
+    </div>
+}

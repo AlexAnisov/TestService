@@ -11,10 +11,10 @@ namespace ORM
     {
         public int Id { get; set; }
 
-        public string Number { get; set; }
-
+        public int Number { get; set; }
+        public long TimeToDo { get; set; }
         [Required]
-        public int Name { get; set; }
+        public string Name { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
         public Test()
         {

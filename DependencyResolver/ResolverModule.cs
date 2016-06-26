@@ -6,6 +6,10 @@ using DAL.Interface.Repository;
 using Ninject;
 using Ninject.Web.Common;
 using ORM;
+using BLL.Interfacies.Services;
+using Moq;
+using BLL.Interfacies.Entities;
+using System.Collections.Generic;
 
 namespace DependencyResolver
 {
@@ -23,6 +27,13 @@ namespace DependencyResolver
 
         private static void Configure(IKernel kernel, bool isWeb)
         {
+            Mock<ITestRepository> mock = new Mock<ITestRepository>();
+            mock.Setup(m => m.Tests).Returns(new List<TestEntity> {
+                new TestEntity { Name = "test1", Number = 1 },
+                new TestEntity { Name = "test2", Number = 2 },
+                new TestEntity { Name = "test3", Number = 3 },
+            });
+            kernel.Bind<ITestRepository>().ToConstant(mock.Object);
             if (isWeb)
             {
                 kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();

@@ -39,8 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\QuestionAnswerEntity.cs" />
+    <Compile Include="Entities\QuestionEntity.cs" />
+    <Compile Include="Entities\ResultEntity.cs" />
     <Compile Include="Entities\RoleEntity.cs" />
+    <Compile Include="Entities\TestEntity.cs" />
+    <Compile Include="Entities\UserAnswerEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Services\ITestRepository.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
