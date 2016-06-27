@@ -23,7 +23,7 @@ namespace DAL.Mappers
                 return null;
             return new Result()
             {
-                Id = result.Id,
+                //Id = result.Id,
                 Mark = result.Mark,
                 TestId = result.TestId,
                 UserId = result.UserId

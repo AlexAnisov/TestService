@@ -5,7 +5,7 @@ namespace DAL.Mappers
 {
     public static class DalUserAnswerMapper
     {
-        public static DalUserAnswer ToDalResult(this UserAnswer userAnswer)
+        public static DalUserAnswer ToDalUserAnswer(this UserAnswer userAnswer)
         {
             if (userAnswer == null)
                 return null;
@@ -17,13 +17,13 @@ namespace DAL.Mappers
                 QuestionAnswerId = userAnswer.QuestionAnswerId
             };
         }
-        public static UserAnswer ToResult(this DalUserAnswer userAnswer)
+        public static UserAnswer ToUserAnswer(this DalUserAnswer userAnswer)
         {
             if (userAnswer == null)
                 return null;
             return new UserAnswer()
             {
-                Id = userAnswer.Id,
+                //Id = userAnswer.Id,
                 ResultId = userAnswer.ResultId,
                 QuestionId = userAnswer.QuestionId,
                 QuestionAnswerId = userAnswer.QuestionAnswerId

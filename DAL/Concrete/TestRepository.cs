@@ -2,12 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DAL.Interface.DTO;
 using System.Data.Entity;
 using ORM;
 using DAL.Mappers;
+using System.Linq.Expressions;
 
 namespace DAL.Concrete
 {
@@ -20,12 +19,16 @@ namespace DAL.Concrete
         }
         public void Create(DalTest e)
         {
-            throw new NotImplementedException();
+            if (e == null) return;
+            var test = e.ToTest();
+            context.Set<Test>().Add(test);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var test = context.Set<Test>().SingleOrDefault(t => t.Id == id);
+            if (test != default(Test))
+                context.Set<Test>().Remove(test);
         }
 
         public IEnumerable<DalTest> GetAll()
@@ -35,12 +38,22 @@ namespace DAL.Concrete
 
         public DalTest GetById(int key)
         {
-            throw new NotImplementedException();
+            return context.Set<Test>().FirstOrDefault(t => t.Id == key)?.ToDalTest();
+        }
+
+        public DalTest GetByPredicate(Expression<Func<DalTest, bool>> f)
+        {
+            return context.Set<Test>().Select(t => t.ToDalTest()).FirstOrDefault(f);
         }
 
         public void Update(DalTest entity)
         {
-            throw new NotImplementedException();
+            var test = context.Set<Test>().SingleOrDefault(t => t.Id == entity.Id);
+
+            if (test != null)
+                return;
+            test = entity.ToTest();
+            context.Entry(test).State = EntityState.Modified;
         }
     }
 }

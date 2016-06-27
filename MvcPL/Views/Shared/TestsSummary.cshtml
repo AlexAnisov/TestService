@@ -1,0 +1,16 @@
+﻿@model MvcPL.Models.Test.TestViewModel
+<div class="well">
+    <h3>
+        <strong> @Model.Name </ strong >
+        <span class="pull-right label label-primary">Time @Model.TimeToDo minutes </ span >
+    </h3>
+    @using (Html.BeginForm("BeginTest", "Test"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(x => x.Id)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Begin test" />
+        </div>
+    }
+    <span class="lead"> Test @Model.Number </ span >
+</div>

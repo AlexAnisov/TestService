@@ -23,7 +23,7 @@ namespace DAL.Mappers
                 return null;
             return new QuestionAnswer()
             {
-                Id = questionAnswer.Id,
+                //Id = questionAnswer.Id,
                 Content = questionAnswer.Content,
                 Correct = questionAnswer.Correct,
                 QuestionId = questionAnswer.QuestionId

@@ -24,7 +24,7 @@ namespace DAL.Mappers
                 return null;
             return new Question()
             {
-                Id = question.Id,
+                //Id = question.Id,
                 Content = question.Content,
                 Cost = question.Cost,
                 Number = question.Number,

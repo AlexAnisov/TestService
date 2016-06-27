@@ -47,8 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\QuestionAnswerRepository.cs" />
+    <Compile Include="Concrete\QuestionRepository.cs" />
+    <Compile Include="Concrete\ResultRepository.cs" />
     <Compile Include="Concrete\TestRepository.cs" />
     <Compile Include="Concrete\UnitOfWork.cs" />
+    <Compile Include="Concrete\UserAnswerRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Mappers\DalQuestionAnswerMapper.cs" />
     <Compile Include="Mappers\DalQuestionMapper.cs" />

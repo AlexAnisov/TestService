@@ -5,13 +5,15 @@
 }
 
 @foreach (var p in Model.Tests)
+
 {
-    <div>
+    @Html.Partial("TestsSummary", p)
+    @*<div>
         <h4>@p.Id</h4>
         <h3>@p.Name</h3>
         <h3>@p.Number</h3>
         <h3>@p.TimeToDo</h3>
-    </div>
+    </div>*@
 }
 <div class="btn-group pull-right">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x}))

@@ -51,6 +51,15 @@ namespace DependencyResolver
             kernel.Bind<IUserRepository>().To<UserRepository>();
             kernel.Bind<ITestRepository>().To<TestRepository>();
             kernel.Bind<ITestService>().To<TestService>();
+            kernel.Bind<IUserAnswerRepository>().To<UserAnswerRepository>();
+            //kernel.Bind<ITestService>().To<TestService>();
+            kernel.Bind<IResultRepository>().To<ResultRepository>();
+            //kernel.Bind<ITestService>().To<TestService>();
+            kernel.Bind<IQuestionRepository>().To<QuestionRepository>();
+            //kernel.Bind<ITestService>().To<TestService>();
+            kernel.Bind<IQuestionAnswerRepository>().To<QuestionAnswerRepository>();
+            //kernel.Bind<ITestService>().To<TestService>();
+
         }
     }
 }
