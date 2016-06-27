@@ -74,6 +74,7 @@
     <Compile Include="Mappers\BllTestMapper.cs" />
     <Compile Include="Mappers\BllUserAnswerMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TestService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

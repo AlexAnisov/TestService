@@ -1,13 +1,18 @@
-﻿@model IEnumerable<BLL.Interfacies.Entities.TestEntity>
+﻿@model MvcPL.Models.Test.TestsListViewModel
 
 @{
     ViewBag.Title = "Tests";
 }
 
-@foreach (var p in Model)
+@foreach (var p in Model.Tests)
 {
     <div>
-        <h4>@p.Number</h4>
+        <h4>@p.Id</h4>
         <h3>@p.Name</h3>
+        <h3>@p.Number</h3>
+        <h3>@p.TimeToDo</h3>
     </div>
 }
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x}))
+</div>

@@ -1,4 +1,7 @@
 ﻿using BLL.Interfacies.Services;
+using MvcPL.Infrastructure.Mappers;
+using MvcPL.Models;
+using MvcPL.Models.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +12,31 @@ namespace MvcPL.Controllers
 {
     public class TestController : Controller
     {
-        private ITestRepository testRepository;
-        public TestController(ITestRepository testRepository)
+        private ITestService testService;
+        public int PageSize = 4;
+        public TestController(ITestService testService)
         {
-            this.testRepository = testRepository;
+            this.testService = testService;
         }
 
-        public ViewResult List()
+        
+            public ViewResult List(int page = 1)
         {
-            return View(testRepository.Tests);
+            TestsListViewModel model = new TestsListViewModel
+            {
+                Tests = testService.GetAllTestEntity()
+                .OrderBy(p => p.Number)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize).Select(test => test.ToMvcTest()),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = testService.GetAllTestEntity().Count()
+                },
+            };
+            return View(model);
         }
+    }
 
     }
-}

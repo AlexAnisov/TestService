@@ -57,16 +57,16 @@ namespace DAL.Concrete
             context.Set<User>().Add(user);
         }
 
-        public void Delete(DalUser e)
+        public void Delete(int id)
         {
-            var user = new User()
-            {
-                Id = e.Id,
-                Name = e.Name,
-                RoleId = e.RoleId
-            };
-            user = context.Set<User>().Single(u => u.Id == user.Id);
-            context.Set<User>().Remove(user);
+            //var user = new User()
+            //{
+            //    Id = e.Id,
+            //    Name = e.Name,
+            //    RoleId = e.RoleId
+            //};
+            //user = context.Set<User>().Single(u => u.Id == user.Id);
+            //context.Set<User>().Remove(user);
         }
 
         public void Update(DalUser entity)

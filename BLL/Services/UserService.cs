@@ -37,8 +37,8 @@ namespace BLL.Services
 
         public void DeleteUser(UserEntity user)
         {
-            userRepository.Delete(user.ToDalUser());
-            uow.Commit();
+            //userRepository.Delete(user.ToDalUser());
+            //uow.Commit();
         }
     }
 }

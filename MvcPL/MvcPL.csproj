@@ -151,8 +151,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\QuestionsHelpers.cs" />
+    <Compile Include="Infrastructure\IPagingInfo.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Infrastructure\Mappers\MvcPLMappers.cs" />
+    <Compile Include="Models\Question\CountOfQuestionsInfo.cs" />
+    <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\Question\QestionListViewModel.cs" />
+    <Compile Include="Models\Question\QuestionViewModel.cs" />
+    <Compile Include="Models\Test\TestsListViewModel.cs" />
+    <Compile Include="Models\Test\TestViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

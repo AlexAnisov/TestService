@@ -2,7 +2,7 @@
 
 namespace DAL.Interface.DTO
 {
-    public class DalResult
+    public class DalResult : IEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }

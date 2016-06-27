@@ -49,6 +49,7 @@
     <Compile Include="DTO\DalTest.cs" />
     <Compile Include="DTO\DalUserAnswer.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ITestRepository.cs" />
     <Compile Include="Repository\IUnitOfWork.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

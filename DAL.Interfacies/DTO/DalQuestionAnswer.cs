@@ -1,6 +1,6 @@
 ﻿namespace DAL.Interface.DTO
 {
-    public class DalQuestionAnswer
+    public class DalQuestionAnswer : IEntity
     {
         public int Id { get; set; }
         public string Content { get; set; }
