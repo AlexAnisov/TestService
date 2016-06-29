@@ -9,6 +9,7 @@ namespace MvcPL.Models.Question
     public class QestionListViewModel
     {
         public IEnumerable<QuestionViewModel> Questions { get; set; }
-        public CountOfQuestionsInfo PagingInfo { get; set; }
+        public IEnumerable<QuestionAnswerViewModel> QuestionAnswers { get; set; }
+        public PagingInfo QuestionInfo { get; set; }
     }
 }

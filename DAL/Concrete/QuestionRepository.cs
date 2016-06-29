@@ -46,6 +46,11 @@ namespace DAL.Concrete
             return context.Set<Question>().Select(t => t.ToDalQuestion()).FirstOrDefault(f);
         }
 
+        public IEnumerable<DalQuestion> GetDalQuestionByTestId(int testId)
+        {
+            return context.Set<Question>().Where(t => t.TestId == testId).ToList().Select(t => t.ToDalQuestion());
+        }
+
         public void Update(DalQuestion entity)
         {
             var tmp = context.Set<Question>().SingleOrDefault(t => t.Id == entity.Id);

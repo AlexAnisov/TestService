@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfacies.Services
 {
-    public interface ITestService
+    public interface IQuestionService
     {
-        TestEntity GetTestEntity(int id);
-        IEnumerable<TestEntity> GetAllTestEntity();
+        QuestionEntity GetQuestionEntity(int id);
+        IEnumerable<QuestionEntity> GetQuestionEntityByTestId(int? testId);
     }
 }

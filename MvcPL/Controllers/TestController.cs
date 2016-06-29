@@ -13,14 +13,18 @@ namespace MvcPL.Controllers
     public class TestController : Controller
     {
         private ITestService testService;
+
         public int PageSize = 4;
+        
         public TestController(ITestService testService)
         {
             this.testService = testService;
         }
-
-        
-            public ViewResult List(int page = 1)
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ViewResult List(int page = 1)
         {
             TestsListViewModel model = new TestsListViewModel
             {

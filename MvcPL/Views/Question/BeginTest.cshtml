@@ -1,0 +1,29 @@
+﻿@model MvcPL.Models.Question.QestionListViewModel
+
+@{
+    ViewBag.Title = "Question";
+}
+
+@foreach (var p in Model.Questions)
+
+{
+    @Html.Partial("QuestionsSummary", p)
+    
+}
+@foreach (var qa in Model.QuestionAnswers)
+
+{
+    using (Html.BeginForm("SetAnswer", "Question"))
+    {
+        <div class="text-center">
+            @Html.Hidden("Id", qa.Id)
+            @Html.Hidden("questionId",qa.QuestionId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="@qa.Content" />
+        </div>
+    }
+
+}
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.QuestionInfo, x => Url.Action("BeginTest", new {testId=Model.Questions.First().TestId, page = x }))
+</div>

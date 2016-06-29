@@ -1,6 +1,7 @@
 ﻿using BLL.Interface.Entities;
 using BLL.Interfacies.Entities;
 using MvcPL.Models;
+using MvcPL.Models.Question;
 using MvcPL.Models.Test;
 
 namespace MvcPL.Infrastructure.Mappers
@@ -48,6 +49,56 @@ namespace MvcPL.Infrastructure.Mappers
                 Name = test.Name,
                 Number = test.Number,
                 TimeToDo = test.TimeToDo
+            };
+        }
+        public static QuestionViewModel ToMVCQuestion(this QuestionEntity question)
+        {
+            if (question == null)
+                return null;
+            return new QuestionViewModel()
+            {
+                Id = question.Id,
+                Content = question.Content,
+                Cost = question.Cost,
+                Number = question.Number,
+                TestId = question.TestId
+            };
+        }
+        public static QuestionEntity ToBllQuestion(this QuestionViewModel question)
+        {
+            if (question == null)
+                return null;
+            return new QuestionEntity()
+            {
+                Id = question.Id,
+                Content = question.Content,
+                Cost = question.Cost,
+                Number = question.Number,
+                TestId = question.TestId
+            };
+        }
+        public static QuestionAnswerViewModel ToMvcQuestionAnswer(this QuestionAnswerEntity questionAnswer)
+        {
+            if (questionAnswer == null)
+                return null;
+            return new QuestionAnswerViewModel()
+            {
+                Id = questionAnswer.Id,
+                Content = questionAnswer.Content,
+                Correct = questionAnswer.Correct,
+                QuestionId = questionAnswer.QuestionId
+            };
+        }
+        public static QuestionAnswerEntity ToBllQuestionAnswer(this QuestionAnswerViewModel questionAnswer)
+        {
+            if (questionAnswer == null)
+                return null;
+            return new QuestionAnswerEntity()
+            {
+                Id = questionAnswer.Id,
+                Content = questionAnswer.Content,
+                Correct = questionAnswer.Correct,
+                QuestionId = questionAnswer.QuestionId
             };
         }
     }

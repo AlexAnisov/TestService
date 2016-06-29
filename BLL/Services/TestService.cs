@@ -2,12 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BLL.Interfacies.Entities;
 using DAL.Interface.Repository;
 using BLL.Mappers;
-using DAL.Interfacies.Repository;
 
 namespace BLL.Services
 {
@@ -19,15 +16,7 @@ namespace BLL.Services
         {
             this.uow = uow;
         }
-        public void CreateUser(TestEntity test)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteUser(TestEntity test)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public IEnumerable<TestEntity> GetAllTestEntity()
         {

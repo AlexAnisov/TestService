@@ -44,9 +44,15 @@
     <Compile Include="Entities\ResultEntity.cs" />
     <Compile Include="Entities\RoleEntity.cs" />
     <Compile Include="Entities\TestEntity.cs" />
+    <Compile Include="Entities\TmpUserAnswerEntity.cs" />
     <Compile Include="Entities\UserAnswerEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Services\IQuestionAnswerService.cs" />
+    <Compile Include="Services\IQuestionService.cs" />
+    <Compile Include="Services\IResultService.cs" />
+    <Compile Include="Services\ISessionUserAnswerService.cs" />
     <Compile Include="Services\ITestService.cs" />
+    <Compile Include="Services\IUserAnswerService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
