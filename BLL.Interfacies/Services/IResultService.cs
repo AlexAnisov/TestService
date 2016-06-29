@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Interfacies.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace BLL.Interfacies.Services
 {
     public interface IResultService
     {
+        ResultEntity GetResultEntityById(int id);
+        IEnumerable<ResultEntity> GetResultEntityByUserId(int userId);
+        ResultEntity GetResultEntityByUserIdAndDate(int userId, DateTime date);
     }
 }

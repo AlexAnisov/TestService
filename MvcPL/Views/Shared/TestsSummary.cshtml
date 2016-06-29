@@ -4,10 +4,11 @@
         <strong> @Model.Name </ strong >
         <span class="pull-right label label-primary">Time @Model.TimeToDo minutes </ span >
     </h3>
-    @using (Html.BeginForm("BeginTest", "Question"))
+    @using (Html.BeginForm("StartTest", "Question"))
     {
         <div class="pull-right">
             @Html.Hidden("testID", Model.Id)
+            @Html.Hidden("timeToDo", Model.TimeToDo)
             <input type="submit" class="btn btn-success" value="Begin test" />
         </div>
     }

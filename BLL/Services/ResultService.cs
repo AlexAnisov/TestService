@@ -16,5 +16,18 @@ namespace BLL.Services
         {
             this.uow = uow;
         }
+        public ResultEntity GetResultEntityById(int id)
+        {
+            return uow.ResultRepository.GetById(id).ToBllResult();
+        }
+
+        public IEnumerable<ResultEntity> GetResultEntityByUserId(int userId)
+        {
+            return uow.ResultRepository.GetDalQuestionByUserId(userId).Select(q => q.ToBllResult());
+        }
+        public ResultEntity GetResultEntityByUserIdAndDate(int userId, DateTime date)
+        {
+            return uow.ResultRepository.GetDalResultByUserIdAndDate(userId, date).ToBllResult();
+        }
     }
 }

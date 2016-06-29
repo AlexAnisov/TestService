@@ -14,7 +14,8 @@ namespace DAL.Mappers
                 Id = result.Id,
                 Mark = result.Mark,
                 TestId = result.TestId,
-                UserId = result.UserId
+                UserId = result.UserId,
+                Date=result.Date
             };
         }
         public static Result ToResult(this DalResult result)
@@ -26,7 +27,8 @@ namespace DAL.Mappers
                 //Id = result.Id,
                 Mark = result.Mark,
                 TestId = result.TestId,
-                UserId = result.UserId
+                UserId = result.UserId,
+                Date = result.Date
             };
         }
     }

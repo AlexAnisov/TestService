@@ -10,6 +10,8 @@ namespace BLL.Interfacies.Services
     public interface IUserAnswerService
     {
         ISessionUserAnswerService CreateNewSessionAnswer();
-        
+        int EndTest(ISessionUserAnswerService result);
+        UserAnswerEntity GetUserAnswerEntityByResultIdAndQuestionId(int resultId, int questionId);
+
     }
 }

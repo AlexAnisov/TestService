@@ -11,5 +11,6 @@ namespace BLL.Interfacies.Services
     {
         QuestionEntity GetQuestionEntity(int id);
         IEnumerable<QuestionEntity> GetQuestionEntityByTestId(int? testId);
+        QuestionEntity GetQuestionEntityById(int? id);
     }
 }

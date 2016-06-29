@@ -25,7 +25,7 @@ namespace BLL.Services
 
         public TestEntity GetTestEntity(int id)
         {
-            throw new NotImplementedException();
+            return uow.TestRepository.GetById(id).ToBllTest();
         }
     }
 }

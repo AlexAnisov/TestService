@@ -10,5 +10,6 @@ namespace BLL.Interfacies.Services
     public interface IQuestionAnswerService
     {
         IEnumerable<QuestionAnswerEntity> GetQuestionAnswerEntityByQuestionId(int testId);
+        QuestionAnswerEntity GetQuestionAnswerEntityById(int id);
     }
 }

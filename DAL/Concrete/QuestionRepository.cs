@@ -38,6 +38,8 @@ namespace DAL.Concrete
 
         public DalQuestion GetById(int key)
         {
+            if (key == null)
+                return null;
             return context.Set<Question>().FirstOrDefault(t => t.Id == key)?.ToDalQuestion();
         }
 

@@ -13,17 +13,24 @@
 @foreach (var qa in Model.QuestionAnswers)
 
 {
-    using (Html.BeginForm("SetAnswer", "Question"))
-    {
-        <div class="text-center">
+        using (Html.BeginForm("SetAnswer", "Question"))
+        {
+        <div class="text-left">
             @Html.Hidden("Id", qa.Id)
-            @Html.Hidden("questionId",qa.QuestionId)
+            @Html.Hidden("questionId", qa.QuestionId)
+            @Html.Hidden("correct", qa.Correct)
+            @Html.Hidden("cost", Model.Questions.Where(x=>x.Id==qa.QuestionId).FirstOrDefault().Cost)
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" class="btn btn-success" value="@qa.Content" />
         </div>
-    }
-
+        }
 }
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.QuestionInfo, x => Url.Action("BeginTest", new {testId=Model.Questions.First().TestId, page = x }))
-</div>
+<p>
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.QuestionInfo, x => Url.Action("BeginTest", new { testId = Model.Questions.First().TestId, page = x }))
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Save answers", "EndTest", null,
+            new { @class = "btn btn-default" })
+    </div>
+</p>

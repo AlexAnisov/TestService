@@ -40,7 +40,10 @@ namespace DAL.Concrete
         {
             return context.Set<UserAnswer>().FirstOrDefault(t => t.Id == key)?.ToDalUserAnswer();
         }
-
+        public DalUserAnswer GetDalUserAnswerEntityByResultIdAndQuestionId(int resultId, int questionId)
+        {
+            return context.Set<UserAnswer>().FirstOrDefault(t => t.ResultId == resultId && t.QuestionId == questionId)?.ToDalUserAnswer();
+        }
         public DalUserAnswer GetByPredicate(Expression<Func<DalUserAnswer, bool>> f)
         {
             return context.Set<UserAnswer>().Select(t => t.ToDalUserAnswer()).FirstOrDefault(f);

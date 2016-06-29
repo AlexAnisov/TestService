@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -160,6 +161,9 @@
     <Compile Include="Models\Question\QestionListViewModel.cs" />
     <Compile Include="Models\QuestionAnswers\QuestionAnswerViewModel.cs" />
     <Compile Include="Models\Question\QuestionViewModel.cs" />
+    <Compile Include="Models\Result\TestResultDetailsViewModel.cs" />
+    <Compile Include="Models\Result\ResultViewModel.cs" />
+    <Compile Include="Models\Result\TestResultViewModel.cs" />
     <Compile Include="Models\Test\TestsListViewModel.cs" />
     <Compile Include="Models\Test\TestViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -279,6 +283,10 @@
     <Content Include="Views\Question\BeginTest.cshtml" />
     <Content Include="Views\Shared\QuestionsSummary.cshtml" />
     <Content Include="Views\Shared\QuestionAnswersSummary.cshtml" />
+    <Content Include="Views\Question\EndTest.cshtml" />
+    <Content Include="Views\Shared\TestResultSummary.cshtml" />
+    <Content Include="Views\Result\ShowResult.cshtml" />
+    <Content Include="Views\Result\ShowDetails.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -5,7 +5,7 @@ namespace BLL.Mappers
 {
     public static class BllUserAnswerMapper
     {
-        public static DalUserAnswer ToDalResult(this UserAnswerEntity userAnswer)
+        public static DalUserAnswer ToDalUserAnswer(this UserAnswerEntity userAnswer)
         {
             if (userAnswer == null)
                 return null;
@@ -17,7 +17,7 @@ namespace BLL.Mappers
                 QuestionAnswerId = userAnswer.QuestionAnswerId
             };
         }
-        public static UserAnswerEntity ToBllResult(this DalUserAnswer userAnswer)
+        public static UserAnswerEntity ToBllUserAnswer(this DalUserAnswer userAnswer)
         {
             if (userAnswer == null)
                 return null;

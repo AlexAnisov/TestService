@@ -40,7 +40,14 @@ namespace DAL.Concrete
         {
             return context.Set<Result>().FirstOrDefault(t => t.Id == key)?.ToDalResult();
         }
-
+        public IEnumerable<DalResult> GetDalQuestionByUserId(int userId)
+        {
+            return context.Set<Result>().Where(t => t.UserId == userId).ToList().Select(t => t.ToDalResult());
+        }
+        public DalResult GetDalResultByUserIdAndDate(int userId, DateTime date)
+        {
+            return context.Set<Result>().FirstOrDefault(t => t.UserId == userId && t.Date==date)?.ToDalResult();
+        }
         public DalResult GetByPredicate(Expression<Func<DalResult, bool>> f)
         {
             return context.Set<Result>().Select(t => t.ToDalResult()).FirstOrDefault(f);

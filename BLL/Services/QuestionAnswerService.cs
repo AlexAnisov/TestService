@@ -21,5 +21,9 @@ namespace BLL.Services
         {
             return uow.QuestionAnswerRepository.GetDalQuestionAnswerByQuestionId(questionId).Select(q => q.ToBllQuestionAnswer());
         }
+        public QuestionAnswerEntity GetQuestionAnswerEntityById(int id)
+        {
+            return uow.QuestionAnswerRepository.GetById(id).ToBllQuestionAnswer();
+        }
     }
 }

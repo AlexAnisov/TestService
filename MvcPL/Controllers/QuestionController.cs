@@ -19,12 +19,17 @@ namespace MvcPL.Controllers
 
         public int PageSize = 1;
 
-        public QuestionController(IQuestionService questionService, IQuestionAnswerService questionAnswerService, 
+        public QuestionController(IQuestionService questionService, IQuestionAnswerService questionAnswerService,
             IUserAnswerService userAnswerService)
         {
             this.QuestionService = questionService;
             this.QuestionAnswerService = questionAnswerService;
             this.UserAnswerService = userAnswerService;
+        }
+        public ActionResult StartTest(int testId, int timeToDo)
+        {
+            GetTmpUserAnswer().StartTest(testId, timeToDo);
+            return RedirectToAction("BeginTest", new { testId = testId, page = 1 });
         }
         public ActionResult BeginTest(int? testId = null, int page = 1)
         {
@@ -50,10 +55,19 @@ namespace MvcPL.Controllers
             };
             return View(model);
         }
-        public ActionResult SetAnswer (int Id, int questionId, string returnUrl)
+        public ActionResult SetAnswer(int Id, int questionId, bool correct, int cost, string returnUrl)
         {
-            GetTmpUserAnswer().AddTmpItem(Id, questionId);
-            return Redirect(returnUrl);
+            if (GetTmpUserAnswer().AddTmpItem(Id, questionId, correct,cost))
+                return Redirect(returnUrl);
+            return RedirectToAction("EndTest", new {message="Time is over" });
+        }
+        public ActionResult EndTest(string message)
+        {
+            var contextResult = GetTmpUserAnswer();
+            int resultId = UserAnswerService.EndTest(contextResult);
+            TempData["ResultId"] = resultId;
+            contextResult.Clear();
+            return View(resultId);
         }
         private ISessionUserAnswerService GetTmpUserAnswer()
         {

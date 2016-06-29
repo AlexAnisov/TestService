@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Interfacies.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,12 @@ namespace BLL.Interfacies.Services
 {
     public interface ISessionUserAnswerService
     {
-        void AddTmpItem(int id, int questionId);
+        bool AddTmpItem(int id, int questionId, bool correct, int cost);
         void RemoveTmpItem(int id);
         void Clear();
+        void StartTest(int testId, int time);
+        void EndTest();
+        IEnumerable<TmpUserAnswerEntity> Result { get; }
+        int TestId { get; }
     }
 }

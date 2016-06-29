@@ -22,12 +22,17 @@ namespace BLL.Services
         {
             throw new NotImplementedException();
         }
-
+        public QuestionEntity GetQuestionEntityById(int? id)
+        {
+            if (id == null)
+                return null;
+            return uow.QuestionRrepository.GetById((int)id).ToBllQuestion();
+        }
         public IEnumerable<QuestionEntity> GetQuestionEntityByTestId(int? testId)
         {
             if (testId == null)
                 return null;
-            return uow.QuestionRrepository.GetDalQuestionByTestId((int)testId).Select(q=>q.ToBllQuestion());
+            return uow.QuestionRrepository.GetDalQuestionByTestId((int)testId).Select(q => q.ToBllQuestion());
         }
     }
 }

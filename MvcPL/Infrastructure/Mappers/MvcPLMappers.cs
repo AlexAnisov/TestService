@@ -2,6 +2,7 @@
 using BLL.Interfacies.Entities;
 using MvcPL.Models;
 using MvcPL.Models.Question;
+using MvcPL.Models.Result;
 using MvcPL.Models.Test;
 
 namespace MvcPL.Infrastructure.Mappers
@@ -99,6 +100,32 @@ namespace MvcPL.Infrastructure.Mappers
                 Content = questionAnswer.Content,
                 Correct = questionAnswer.Correct,
                 QuestionId = questionAnswer.QuestionId
+            };
+        }
+        public static ResultViewModel ToMvcResult(this ResultEntity result)
+        {
+            if (result == null)
+                return null;
+            return new ResultViewModel()
+            {
+                Id = result.Id,
+                Mark = result.Mark,
+                TestId = result.TestId,
+                UserId = result.UserId,
+                Date = result.Date
+            };
+        }
+        public static ResultEntity ToBllResult(this ResultViewModel result)
+        {
+            if (result == null)
+                return null;
+            return new ResultEntity()
+            {
+                Id = result.Id,
+                Mark = result.Mark,
+                TestId = result.TestId,
+                UserId = result.UserId,
+                Date = result.Date
             };
         }
     }
