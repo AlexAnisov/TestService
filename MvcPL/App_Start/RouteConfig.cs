@@ -23,7 +23,7 @@ namespace MvcPL
                 new
                 {
                     controller = "Test",
-                    action = "List",
+                    action = "Index",
                     page = 1
                 }
             );

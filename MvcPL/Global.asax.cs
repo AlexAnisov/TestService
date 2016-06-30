@@ -5,6 +5,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject.Web.Common;
+using MvcPL.Infrastructure.Handlers;
+using System.Web.Http.Filters;
 
 namespace MvcPL
 {
@@ -21,6 +23,7 @@ namespace MvcPL
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
         }
     }
 }

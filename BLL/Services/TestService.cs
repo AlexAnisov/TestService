@@ -27,5 +27,16 @@ namespace BLL.Services
         {
             return uow.TestRepository.GetById(id).ToBllTest();
         }
+
+        public void Update(TestEntity entity)
+        {
+            uow.TestRepository.Update(entity.ToDalTest());
+            uow.Commit();
+        }
+        public void Delete(int id)
+        {
+            uow.TestRepository.Delete(id);
+            uow.Commit();
+        }
     }
 }

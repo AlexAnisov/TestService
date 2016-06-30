@@ -34,17 +34,7 @@ namespace DependencyResolver
             //    new TestEntity { Name = "test2", Number = 2 },
             //    new TestEntity { Name = "test3", Number = 3 },
             //});
-            //kernel.Bind<ITestRepository>().ToConstant(mock.Object);
-            //if (isWeb)
-            //{
-            //    kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            //    kernel.Bind<DbContext>().To<EntityModel>().InRequestScope();
-            //}
-            //else
-            //{
-            //    kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InSingletonScope();
-            //    kernel.Bind<DbContext>().To<EntityModel>().InSingletonScope();
-            //}
+            
             kernel.Bind<DbContext>().To<EntityModel>().InSingletonScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InSingletonScope();
             kernel.Bind<IUserService>().To<UserService>();
@@ -60,6 +50,7 @@ namespace DependencyResolver
             kernel.Bind<IQuestionAnswerRepository>().To<QuestionAnswerRepository>();
             kernel.Bind<IQuestionAnswerService>().To<QuestionAnswerService>();
             kernel.Bind<ISessionUserAnswerService>().To<SessionUserAnswerService>();
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
 
         }
     }

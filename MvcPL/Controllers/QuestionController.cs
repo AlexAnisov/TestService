@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace MvcPL.Controllers
 {
+    [Authorize]
     public class QuestionController : Controller
     {
         private IQuestionService QuestionService;

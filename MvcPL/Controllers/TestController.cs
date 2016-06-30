@@ -22,8 +22,9 @@ namespace MvcPL.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            return PartialView();
         }
+        [Authorize]
         public ViewResult List(int page = 1)
         {
             TestsListViewModel model = new TestsListViewModel
@@ -41,7 +42,8 @@ namespace MvcPL.Controllers
             };
             return View(model);
         }
-       
+        
+
     }
 
     }

@@ -11,5 +11,7 @@ namespace BLL.Interfacies.Services
     {
         TestEntity GetTestEntity(int id);
         IEnumerable<TestEntity> GetAllTestEntity();
+        void Update(TestEntity entity);
+        void Delete(int id);
     }
 }

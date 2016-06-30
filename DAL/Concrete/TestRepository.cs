@@ -33,7 +33,7 @@ namespace DAL.Concrete
 
         public IEnumerable<DalTest> GetAll()
         {
-            return context.Set<Test>().ToList().Select(t=>t.ToDalTest());
+            return context.Set<Test>().ToList().Select(t => t.ToDalTest());
         }
 
         public DalTest GetById(int key)
@@ -48,12 +48,20 @@ namespace DAL.Concrete
 
         public void Update(DalTest entity)
         {
+            if (entity == null) return;
             var test = context.Set<Test>().SingleOrDefault(t => t.Id == entity.Id);
 
-            if (test != null)
+            if (test == default(Test))
+            {
+                test = entity.ToTest();
+                context.Set<Test>().Add(test);
                 return;
-            test = entity.ToTest();
+            }
+            test.Name = entity.Name;
+            test.Number = entity.Number;
+            test.TimeToDo = entity.TimeToDo;
             context.Entry(test).State = EntityState.Modified;
         }
+
     }
 }

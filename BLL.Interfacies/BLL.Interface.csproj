@@ -47,6 +47,7 @@
     <Compile Include="Entities\TmpUserAnswerEntity.cs" />
     <Compile Include="Entities\UserAnswerEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Services\IAuthProvider.cs" />
     <Compile Include="Services\IQuestionAnswerService.cs" />
     <Compile Include="Services\IQuestionService.cs" />
     <Compile Include="Services\IResultService.cs" />

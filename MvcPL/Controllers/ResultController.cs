@@ -10,6 +10,7 @@ using MvcPL.Models;
 
 namespace MvcPL.Controllers
 {
+    [Authorize]
     public class ResultController : Controller
     {
         private IQuestionService QuestionService;
@@ -57,6 +58,14 @@ namespace MvcPL.Controllers
                 QuestionAnswers = QuestionAnswerService.GetQuestionAnswerEntityById(currentQusetionId)?.ToMvcQuestionAnswer(),
             };
             return View(model);
+        }
+        public ActionResult ViewStatistic(int userId)
+        {
+            AllTestResultViewModel model = new AllTestResultViewModel
+            {
+                Results=ResultService.GetResultEntityByUserId(userId).Select(r=>r.ToMvcResult())
+            };
+            return PartialView(model);
         }
 
     }
